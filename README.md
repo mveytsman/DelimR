@@ -1,5 +1,7 @@
 # DelimR
 
+*For background information, see this [blog post](http://blog.ontoillogical.com/blog/2014/07/12/delimited-continuations-in-ruby/).*
+
 Implements [delimited continuations](https://en.wikipedia.org/wiki/Delimited_continuation) in Ruby. This is a direct port of Oleg Kselyov's Scheme [implementation](http://okmij.org/ftp/continuations/implementations.html#delimcc-scheme).
 
 This is an experiment. Ruby continuations are [considered harmful](http://www.atdot.net/~ko1/pub/ContinuationFest-ruby.pdf). By the way, I want to take a minute to point out that this talk was at something called "Continuation Fest 2008", and calls Matz out for being a "criminal."
