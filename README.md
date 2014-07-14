@@ -2,7 +2,9 @@
 
 Implements [delimited continuations](https://en.wikipedia.org/wiki/Delimited_continuation) in Ruby. This is a direct port of Oleg Kselyov's Scheme [implementation](http://okmij.org/ftp/continuations/implementations.html#delimcc-scheme).
 
-This is an experiment. Ruby continuations are [considered harmful](http://www.atdot.net/~ko1/pub/ContinuationFest-ruby.pdf)[^1]. Don't use this for anything "serious."
+This is an experiment. Ruby continuations are [considered harmful](http://www.atdot.net/~ko1/pub/ContinuationFest-ruby.pdf). By the way, I want to take a minute to point out that this talk was at something called "Continuation Fest 2008", and calls Matz out for being a "criminal."
+
+TL;DR: Don't use this for anything "serious."
 
 ## Installation
 
@@ -26,8 +28,7 @@ Delimited continuations can be a bit tricky. Basically, `DelimR.prompt` takes a 
 
 ## Examples
 
-```
-
+```ruby
 # k represents the computation outside of it
 DelimR.prompt { 1 + DelimR.control { |k| k.call(3) } + 7}
 # => 11
@@ -40,6 +41,7 @@ DelimR.prompt { 1 + DelimR.control { |k| 3 } + 7}
 DelimR.prompt { 1 + DelimR.control { |k| k.call(k.call(3)) } + 7}
 # (1 + (1 + 3 + 7) + 7)
 # => 19
+```
 
 ## A more involved example
 
@@ -107,5 +109,3 @@ For more information on delimited continuations
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
-
-[^1]: I just want to point out that this talk was at "Continuation Fest 2008", and calls Matz a "criminal"
