@@ -54,7 +54,7 @@ class Generator
   def initialize(&block)
     @results = []
     DelimR.prompt do
-      yield(self)
+      block.call(self)
     end
   end
   
@@ -67,9 +67,8 @@ class Generator
     r
   end
   
-  def yield(v)
-    puts "YIELDING"
-    @results << v
+  def yield(result)
+    @results << result
     DelimR.control do |k| 
       @k = k
     end
